@@ -8,7 +8,10 @@ var bodyParser = require('body-parser');
 var cors =require('cors');
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var Product=require('./routes/Product')
+var Product=require('./routes/Product');
+var Productlines = require('./routes/Productlines');
+var Customers = require('./routes/customers');
+var Orders = require('./routes/orders');
 var app = express();
 
 // view engine setup
@@ -25,7 +28,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/Product',Product);
+app.use('/Products',Product);
+app.use('/Product_lines',Productlines);
+app.use('/customers',Customers);
+app.use('/orders',Orders);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
